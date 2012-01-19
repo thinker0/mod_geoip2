@@ -352,7 +352,7 @@ geoip_header_parser(request_rec * r)
                         * separated list, return the first IP address in the
                         * list, which is (hopefully!) the real client IP.
                         */
-                        ipaddr = (char *) calloc(8*4+7+1, sizeof(char));
+                        ipaddr = (char *) apr_pcalloc(r->pool, (8*4+7+1) * sizeof(char));
 
                         if (cfg->use_last_x_forwarded_for_ip ){
                                 comma_ptr = strrchr(ipaddr_ptr, ',');
