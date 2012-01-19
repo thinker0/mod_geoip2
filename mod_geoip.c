@@ -372,6 +372,8 @@ geoip_header_parser(request_rec * r)
 /* this block should be removed! */
 #if 1
 	if (!cfg->gips) {
+		return OK;
+	} else {
 		if (cfg->GeoIPFilenames != NULL) {
 			cfg->gips = malloc(sizeof(GeoIP *) * cfg->numGeoIPFiles);
 			for (i = 0; i < cfg->numGeoIPFiles; i++) {
